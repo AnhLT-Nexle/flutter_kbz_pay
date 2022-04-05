@@ -17,7 +17,8 @@ rootProject.allprojects {
         google()
         jcenter()
         flatDir {
-            dirs 'libs'
+            dirs project(':flutter_kbz_pay').file('libs')
+            // e.g. dirs project(':url_launcher').file('libs')  - don't miss the ':'
         }
     }
 }
@@ -30,6 +31,7 @@ android {
     defaultConfig {
         minSdkVersion 19
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     lintOptions {
         disable 'InvalidPackage'
@@ -37,8 +39,8 @@ android {
 }
 
 dependencies {
-//    implementation files('libs/kbzsdk.jar')
-    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    implementation(name: 'sdk', ext: 'aar')
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.android.support:multidex:1.0.3'
 }
 
