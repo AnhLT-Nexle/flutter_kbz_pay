@@ -4,18 +4,18 @@ version '1.0'
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:4.2.2'
     }
 }
 
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         flatDir {
             dirs project(':flutter_kbz_pay').file('libs')
             // e.g. dirs project(':url_launcher').file('libs')  - don't miss the ':'
@@ -40,7 +40,7 @@ android {
 
 dependencies {
     implementation(name: 'sdk', ext: 'aar')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.android.support:multidex:1.0.3'
 }
 
