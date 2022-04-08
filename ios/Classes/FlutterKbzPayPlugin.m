@@ -39,18 +39,7 @@
 }
 
 - (NSString *)startPay:(NSString*)appId :(NSString*)merchantCode :(NSString*)prepayId :(NSString*)signKey :(NSString*)urlScheme{
-
-    NSString *nonceStrTF = [self getRandomStr];
-    NSString *timeSp = [self getCurrentTimes];
-    NSString *orderString = [NSString stringWithFormat:@"appid=%@&merch_code=%@&nonce_str=%@&prepay_id=%@&timestamp=%@",appId,merchantCode,nonceStrTF,prepayId,timeSp];
-    NSLog(@"orderString data %@",orderString);
-    NSString *signStr = [NSString stringWithFormat:@"%@&key=%@",orderString,signKey];
-    NSLog(@"signStr data %@",signStr);
-    NSString *sign = [self SHA256WithSignString:signStr];
-    NSLog(@"sign data %@",sign);
-    PaymentViewController *vc = [PaymentViewController new];
-    [vc startPayWithOrderInfo:orderString signType:@"SHA256" sign:sign appScheme:urlScheme];
-    return orderString;
+    return @"";
 }
 
 #pragma mark FlutterStreamHandler impl
